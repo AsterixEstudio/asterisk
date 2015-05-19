@@ -1,0 +1,10 @@
+=lego($property, $params, $glue: ", ", $cross: false)
+  $value: nth($params, 1)
+  $length: length($params)
+  @if $length > 1
+    @for $i from 2 through $length
+      $value: $value + $glue + nth($params, $i)
+  #{$property}: #{$value}
+  @if $cross
+    -webkit-#{$property}: #{$value}
+    -moz-#{$property}: #{$value}
