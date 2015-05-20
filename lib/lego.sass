@@ -1,10 +1,19 @@
-=lego($property, $params, $glue: ", ", $cross: false)
-  $value: nth($params, 1)
-  $length: length($params)
-  @if $length > 1
-    @for $i from 2 through $length
-      $value: $value + $glue + nth($params, $i)
-  #{$property}: #{$value}
-  @if $cross
-    -webkit-#{$property}: #{$value}
-    -moz-#{$property}: #{$value}
+=lego($properties, $values, $glue: ", ", $prefixed: false)
+  $properties_length: length($properties)
+  @for $i from 1 through $properties_length
+    $property: nth($properties, $i)
+    $p_separator: list-separator($values)
+    $value: ""
+    @if $p_separator == comma
+      $value: nth($values, 1)
+      $values_length: length($values)
+      @for $j from 2 through $values_length
+        $value: $value + ", " + nth($values, $j)
+    @else
+      $value: $values
+    #{$property}: #{$value}
+    @if $prefixed
+      -webkit-#{$property}: #{$value}
+      -moz-#{$property}: #{$value}
+      -o-#{$property}: #{$value}
+      -ms-#{$property}: #{$value}
