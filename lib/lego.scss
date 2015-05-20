@@ -1,4 +1,4 @@
-@mixin lego($properties, $values, $glue: ', ', $prefixes: false) {
+@mixin lego($properties, $values, $glue: ', ', $prefixed: false) {
     $properties_length: length($properties);
     @for $i from 1 through $properties_length{
         $property: nth($properties, $i);
@@ -15,7 +15,7 @@
         }
 
         #{$property}: #{$value};
-        @if $prefixes {
+        @if $prefixed {
             -webkit-#{$property}: #{$value};
             -moz-#{$property}: #{$value};
             -o-#{$property}: #{$value};
