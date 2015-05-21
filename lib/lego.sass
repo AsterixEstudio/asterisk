@@ -1,14 +1,11 @@
-=lego($properties, $values, $glue: ", ", $prefixed: false)
-  $properties_length: length($properties)
-  @for $i from 1 through $properties_length
+=lego($properties, $values, $prefixed: false, $glue: ", ")
+  @for $i from 1 through length($properties)
     $property: nth($properties, $i)
-    $p_separator: list-separator($values)
     $value: ""
-    @if $p_separator == comma
+    @if list-separator($values) == comma
       $value: nth($values, 1)
-      $values_length: length($values)
-      @for $j from 2 through $values_length
-        $value: $value + ", " + nth($values, $j)
+      @for $j from 2 through length($values)
+        $value: $value + $glue + nth($values, $j)
     @else
       $value: $values
     #{$property}: #{$value}
