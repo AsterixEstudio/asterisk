@@ -1,0 +1,15 @@
+.asterisk(@properties, @values, @prefixed: false){
+  .for_props(@i) when (@i <= length(@properties)){
+    @property: extract(@properties, @i);
+    @{property}: @values;
+    .prefixes() when (@prefixed = true){
+      -webkit-@{property}: @values;
+      -moz-@{property}: @values;
+      -o-@{property}: @values;
+      -ms-@{property}: @values;
+    }
+    .prefixes;
+    .for_props(@i + 1);
+  }
+  .for_props(1);
+}
