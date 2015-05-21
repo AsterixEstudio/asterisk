@@ -1,6 +1,5 @@
 =lego($properties, $values, $prefixed: false, $glue: ", ")
-  @for $i from 1 through length($properties)
-    $property: nth($properties, $i)
+  @each $property in $properties
     $value: ""
     @if list-separator($values) == comma
       $value: nth($values, 1)
