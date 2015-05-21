@@ -1,4 +1,4 @@
-@mixin lego($properties, $values, $prefixed: false, $glue: ', '){
+@mixin asterisk($properties, $values, $prefixed: false, $glue: ', '){
   @each $property in $properties{
     $value: '';
     @if list-separator($values) == comma{
@@ -17,4 +17,8 @@
       -ms-#{$property}: #{$value};
     }
   }
+}
+
+@mixin sk($properties, $values, $prefixed: false, $glue: ', '){
+  @include asterisk($properties, $values, $prefixed: false, $glue: ', ');
 }

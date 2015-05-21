@@ -1,4 +1,4 @@
-=lego($properties, $values, $prefixed: false, $glue: ", ")
+=asterisk($properties, $values, $prefixed: false, $glue: ", ")
   @each $property in $properties
     $value: ""
     @if list-separator($values) == comma
@@ -13,3 +13,6 @@
       -moz-#{$property}: #{$value}
       -o-#{$property}: #{$value}
       -ms-#{$property}: #{$value}
+
+=sk($properties, $values, $prefixed: false, $glue: ", ")
+  +asterisk($properties, $values, $prefixed: false, $glue: ", ")
