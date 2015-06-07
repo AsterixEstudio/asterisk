@@ -20,5 +20,5 @@
 }
 
 @mixin sk($properties, $values, $prefixed: false, $glue: ', '){
-  @include asterisk($properties, $values, $prefixed: false, $glue: ', ');
+  @include asterisk($properties, $values, $prefixed, $glue);
 }
