@@ -1,10 +1,10 @@
-=asterisk($properties, $values, $prefixed: false, $glue: ", ")
+=asterisk($properties, $values, $prefixed: false)
   @each $property in $properties
     $value: ""
     @if list-separator($values) == comma
       $value: nth($values, 1)
       @for $j from 2 through length($values)
-        $value: $value + $glue + nth($values, $j)
+        $value: $value + ', ' + nth($values, $j)
     @else
       $value: $values
     #{$property}: #{$value}
@@ -14,5 +14,5 @@
       -o-#{$property}: #{$value}
       -ms-#{$property}: #{$value}
 
-=sk($properties, $values, $prefixed: false, $glue: ", ")
-  +asterisk($properties, $values, $prefixed, $glue)
+=sk($properties, $values, $prefixed: false)
+  +asterisk($properties, $values, $prefixed)

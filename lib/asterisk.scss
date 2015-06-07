@@ -1,10 +1,10 @@
-@mixin asterisk($properties, $values, $prefixed: false, $glue: ', '){
+@mixin asterisk($properties, $values, $prefixed: false){
   @each $property in $properties{
     $value: '';
     @if list-separator($values) == comma{
       $value: nth($values, 1);
       @for $j from 2 through length($values){
-        $value: $value + $glue + nth($values, $j);
+        $value: $value + ', ' + nth($values, $j);
       }
     }@else{
       $value: $values;
@@ -19,6 +19,6 @@
   }
 }
 
-@mixin sk($properties, $values, $prefixed: false, $glue: ', '){
-  @include asterisk($properties, $values, $prefixed, $glue);
+@mixin sk($properties, $values, $prefixed: false){
+  @include asterisk($properties, $values, $prefixed);
 }
