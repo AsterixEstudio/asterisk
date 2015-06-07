@@ -1,4 +1,4 @@
-Asterisk will help developers to create style sheets faster and simpler.
+## Asterisk will help developers to create style sheets faster and simpler.
 
 The helper receives a property name as the first argument followed by its values. In case you need to send more than one property name or
 value at the same time, you can send both as a list separated by commas. All the values in the second argument will be assigned to each
@@ -17,18 +17,20 @@ asterisk(mixed $properties, mixed $values [, string $glue [, boolean $prefixed ]
 
 Examples in SCSS:
 
+```scss
 @import asterisk
 
 p{
-    @include asterisk(font-family,("Verdana, Tahoma"));
-    @include asterisk(font-family,"Verdana, Tahoma");
-    @include asterisk(font-family,(Verdana, Tahoma));
+    @include sk(font-family, ("Verdana, Tahoma"));
+    @include sk(font-family, "Verdana, Tahoma");
+    @include sk(font-family, (Verdana, Tahoma));
 
-    @include asterisk(margin,1px 2px);
-    @include asterisk(margin,"2px 3px");
-    @include asterisk(margin,(3px 4px),' ');
-    @include asterisk((margin,padding),(5px 6px),' ');
+    @include sk(margin, 1px 2px);
+    @include sk(margin, "2px 3px");
+    @include sk(margin, (3px 4px));
+    @include sk((margin, padding), (5px 6px));
 
-    @include asterisk(box-shadow,1px 2px 3px black,' ',true);
-    @include asterisk(box-shadow,(-5px -5px 5px red, 5px 5px 5px blue),', ',true);
+    @include sk(box-shadow, 1px 2px 3px black, true);
+    @include sk(box-shadow, (-5px -5px 5px red, 5px 5px 5px blue), true);
 }
+```
